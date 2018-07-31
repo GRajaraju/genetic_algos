@@ -15,4 +15,13 @@ def generate_random_word(target_length):
 def fitness_value(guess):
   return sum(1 for expected, actual in zip(target,guess) if expected == actual)
 
+def mutation(parent):
+    index = random.randrange(0,len(parent))
+    childGenes = list(parent)
+    newGene, alternate = random.sample(geneSet,2)
+    childGenes[index] = alternate if newGene == childGenes[index] else newGene # to ensure new gene is introduced.
+    return "".join(childGenes) 
+  
+  
+
 
