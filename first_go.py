@@ -12,3 +12,7 @@ def generate_random_word(target_length):
       guess.extend(random.sample(population,size_of_guess))
    return "".join(guess)
 
+def fitness_value(guess):
+  return sum(1 for expected, actual in zip(target,guess) if expected == actual)
+
+
